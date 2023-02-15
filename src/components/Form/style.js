@@ -56,6 +56,23 @@ const Form = styled.form`
         }
     }
 
+    > div + div {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+
+        > button {
+            background-color: var(--color-primary);
+        }
+
+        > button + button {
+            background-color: var(--gray-1);
+        }
+    }
+
     .disable {
         background-color: var(--color-primary-disable);
     }

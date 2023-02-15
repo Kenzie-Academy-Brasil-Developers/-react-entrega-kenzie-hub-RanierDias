@@ -5,8 +5,8 @@ import * as yup from 'yup'
 
 import Form from '../style.js'
 import ButtonMain from '../../Button/style.js'
-import kenzieHub from '../../../services/kenzie-hub.js';
-import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import { UserContext } from '../../../contexts/user/index.jsx';
 
 const schema = yup.object({
     name: yup.string().required('O nome é obrigatório'),
@@ -23,48 +23,12 @@ const schema = yup.object({
     course_module: yup.string().required('Selecione um dos módulos abaixo'),
 }).required()
 
-function FormRegister({ navigate }) {
+function FormRegister() {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
 
-    async function registerUser(data) {
-        let { name, email, password, bio, contact, course_module } = data
-
-        switch (course_module) {
-            case '1':
-                course_module = '1º módulo: Front-end Vanilla'
-                break;
-            case '2':
-                course_module = '2º módulo: Front-end Intermediário (API\'s)'
-                break;
-            case '3':
-                course_module = '3º módulo: Front-end Avançado (Bibliotecas e React)'
-                break;
-            case '4':
-                course_module = '4º módulo: Back-end (Estruturação de API\'s)'
-                break;
-            case '5':
-                course_module = '5º módulo: Back-end Avançado'
-                break;
-            case '6':
-                course_module = '6º módulo: Construção de sites em grupo'
-                break;
-        }
-
-        try {
-            const user = { name, email, password, bio, contact, course_module }
-            const response = await kenzieHub.post('/users', user)
-
-            toast.success('Cadrastro realizado com sucesso')
-            navigate('/')
-        } catch (error) {
-            error.response.status == 404 && toast.error('Recurso não encontrado, tente mais tarde')
-            error.response.data.message == 'Email already exists' && toast.error('O email já é existente!')
-        }
-    }
-
-    console.log(errors)
+    const { registerUser } = useContext(UserContext)
 
     return (
         <Form onSubmit={handleSubmit(registerUser)}>

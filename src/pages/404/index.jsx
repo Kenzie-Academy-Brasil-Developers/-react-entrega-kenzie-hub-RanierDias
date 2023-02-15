@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import ButtonSmall from '../../components/Button/Small/style';
 import Main from './style';
 
-function PageNotFound({ navigate }) {
+function PageNotFound() {
+    const navigate = useNavigate()
+    
     function login() {
         navigate('/')
     }

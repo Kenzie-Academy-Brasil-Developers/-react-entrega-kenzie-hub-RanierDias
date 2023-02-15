@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root {
+        position: relative;
         width: 100%;
         margin: 0 auto;
         font-family: 'Inter', sans-serif;
