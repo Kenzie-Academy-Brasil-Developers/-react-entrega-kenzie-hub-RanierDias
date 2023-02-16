@@ -1,8 +1,9 @@
 import { useContext } from 'react'
+import { UserContext } from '../../contexts/user/index.jsx'
+
 import ButtonSmall from '../../components/Button/Small/style.js'
 import FormRegister from '../../components/Form/FormRegister'
 import Section from '../../components/Section/style.js'
-import { UserContext } from '../../contexts/user/index.jsx'
 import Main from './style.js'
 
 function RegisterPage() {

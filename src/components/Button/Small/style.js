@@ -6,6 +6,10 @@ const ButtonSmall = styled.button`
     border: none;
     border-radius: 4px;
     background-color: var(--gray-3);
+
+    :hover {
+        background-color: var(--button-hover);
+    }
 `
 
 export default ButtonSmall

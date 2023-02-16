@@ -8,6 +8,10 @@ const ButtonMain = styled.button`
     border: none;
     border-radius: 4px;
     background-color: var(--color-primary);
+
+    :hover {
+        background-color: var(--color-primary-focus);
+    }
 `
 
 export default ButtonMain

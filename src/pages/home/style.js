@@ -5,7 +5,7 @@ const Main = styled.main`
         padding: 36px 5vw;
         border-bottom: 2px solid var(--gray-3);
 
-        > h4 {
+        h4 {
             color: var(--gray-1);
         }
     }
@@ -49,12 +49,12 @@ const Main = styled.main`
 
             li:hover {
                 cursor: pointer;
-                background-color: var(--gray-1);
+                background-color: var(--color-hover);
             }
         }
 
         button:hover {
-            background-color: var(--gray-1);
+            background-color: var(--color-hover);
         }
     }
 

@@ -1,12 +1,12 @@
-import { MdArrowDropDown } from 'react-icons/md'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
+import { useContext } from 'react';
+import { UserContext } from '../../../contexts/user/index.jsx';
 
 import Form from '../style.js'
 import ButtonMain from '../../Button/style.js'
-import { useContext } from 'react';
-import { UserContext } from '../../../contexts/user/index.jsx';
+import { MdArrowDropDown } from 'react-icons/md'
 
 const schema = yup.object({
     name: yup.string().required('O nome é obrigatório'),
@@ -24,9 +24,11 @@ const schema = yup.object({
 }).required()
 
 function FormRegister() {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors, dirtyFields } } = useForm({
         resolver: yupResolver(schema)
     })
+    const validFields = dirtyFields?.bio && dirtyFields?.contact && dirtyFields?.course_module && dirtyFields?.email && dirtyFields?.name && dirtyFields?.password && dirtyFields?.valid_password
+    const validWithoutError = Object.values(errors).length > 0
 
     const { registerUser } = useContext(UserContext)
 
@@ -74,7 +76,7 @@ function FormRegister() {
                 </div>
             </div>
 
-            <ButtonMain className={Object.values(errors).length > 0 ? "disable" : ''}
+            <ButtonMain className={validWithoutError || !validFields ? "disable" : ''}
             >Cadastrar</ButtonMain>
         </Form>
     )

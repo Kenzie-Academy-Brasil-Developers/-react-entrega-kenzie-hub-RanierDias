@@ -66,15 +66,28 @@ const Form = styled.form`
 
         > button {
             background-color: var(--color-primary);
+
+            :hover {
+                background-color: var(--color-primary-focus);
+            }
         }
 
         > button + button {
             background-color: var(--gray-1);
+
+            :hover {
+                color: var(--gray-2);
+                background-color: var(--gray-0);
+            }
         }
     }
 
     .disable {
         background-color: var(--color-primary-disable);
+        
+        :hover {
+            background-color: var(--color-primary-disable);
+        }
     }
 `
 

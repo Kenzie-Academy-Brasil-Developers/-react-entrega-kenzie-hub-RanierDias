@@ -20,6 +20,11 @@ const Main = styled.main`
 
         > button {
             background-color: var(--gray-1);
+
+            :hover {
+                color: var(--gray-2);
+                background-color: var(--gray-0);
+            }
         }
     }
 

@@ -11,11 +11,6 @@ const HeardeStyled = styled.header`
     h1 {
         color: var(--color-primary);
     }
-
-    button:hover {
-        background-color: var(--gray-1);
-    }
-
 `
 
 export default HeardeStyled

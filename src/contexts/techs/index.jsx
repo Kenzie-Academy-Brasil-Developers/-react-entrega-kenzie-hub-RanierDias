@@ -11,7 +11,7 @@ function TechsProvider({ children }) {
     const [techCached, setTechCached] = useState({})
     const { user, user: { techs }, setUser } = useContext(UserContext)
 
-    async function techCreate(data) {
+    async function techCreate(data, setValue) {
         try {
             const { token } = JSON.parse(localStorage.getItem('@kenzieHubAuth'))
             const response = await kenzieHub.post('/users/techs', data, {
@@ -22,6 +22,7 @@ function TechsProvider({ children }) {
 
             toast.success(`${response.data.title} foi adicionado as suas tecnologias`)
             setUser({ ...user, techs: [...techs, response.data] })
+            setValue('title', '')
         } catch (error) {
             if (error.response.status === 401) {
                 toast.warning('Essa tecnologia já foi cadastrada! Tente outra ou atualize clicando nela', {

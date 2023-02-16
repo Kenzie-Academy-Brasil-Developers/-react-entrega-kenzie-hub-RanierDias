@@ -1,8 +1,9 @@
 import { useContext } from 'react'
+import { UserContext } from '../../contexts/user/index.jsx'
+
 import ButtonMain from '../../components/Button/style.js'
 import FormLogin from '../../components/Form'
 import Section from '../../components/Section/style.js'
-import { UserContext } from '../../contexts/user/index.jsx'
 import Main from './style.js'
 
 function LoginPage() {

@@ -5,7 +5,8 @@ const GlobalStyle = createGlobalStyle`
         --color-primary: #FF577F;
         --color-primary-focus: #FF427F;
         --color-primary-disable: #59323F;
-        --sucess: #3FE864;
+        --color-hover: #868E96;
+        --button-hover: #868E96;
         --error: #E83F5B;
         --gray-0: #F8F9FA;
         --gray-1: #868E96;
@@ -20,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        position: relative;
         width: 100%;
         margin: 0 auto;
         font-family: 'Inter', sans-serif;
@@ -69,6 +69,22 @@ const GlobalStyle = createGlobalStyle`
                 padding-right: 15vw;
                 padding-left: 15vw;
             }
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --color-primary: #FF577F;
+            --color-primary-focus: #FF427F;
+            --color-primary-disable: #59323F;
+            --color-hover: #868E;
+            --button-hover: #868E;
+            --error: crimson;
+            --gray-0: #FFFFFF;
+            --gray-1: #B1B1B1;
+            --gray-2: #B32B4A;
+            --gray-3: #CC4565;
+            --gray-4: #802B3F;
         }
     }
 `
